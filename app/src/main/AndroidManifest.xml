@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <permission
+            android:name="com.dmyn.mousepointer.permission.CONTROL"
+            android:protectionLevel="signature" />
+    <uses-permission android:name="com.dmyn.mousepointer.permission.CONTROL" />
+
+    <application
+            android:allowBackup="false"
+            android:label="鼠标指针"
+            android:supportsRtl="true">
+
+        <meta-data
+                android:name="xposedmodule"
+                android:value="true" />
+        <meta-data
+                android:name="xposeddescription"
+                android:value="边缘按下显示弧线，手指划过弧线后出现鼠标指针（悬停 + 点击）" />
+        <meta-data
+                android:name="xposedminversion"
+                android:value="82" />
+        <meta-data
+                android:name="xposedscope"
+                android:value="android" />
+
+        <activity
+                android:name=".ui.MainActivity"
+                android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

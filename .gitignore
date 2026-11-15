@@ -1,0 +1,31 @@
+# Gradle
+.gradle/
+build/
+**/build/
+.kotlin/
+**/.kotlin/
+
+# Local configuration
+local.properties
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Signing material (never commit!)
+keystore/
+*.jks
+*.keystore
+
+# Build outputs
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Logs
+*.log
