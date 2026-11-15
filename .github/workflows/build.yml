@@ -50,7 +50,9 @@ jobs:
           MOUSE_POINTER_STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           MOUSE_POINTER_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           MOUSE_POINTER_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-        run: ./gradlew :app:assembleRelease --no-daemon
+        run: |
+          chmod +x gradlew
+          ./gradlew :app:assembleRelease --no-daemon
 
       - name: Prepare artifact
         id: meta
