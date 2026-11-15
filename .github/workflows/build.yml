@@ -22,13 +22,16 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Install Android platform 36
+      - name: Install Android SDK packages
         run: |
-          sdkmanager --install "platforms;android-36" "build-tools;36.0.0" > /dev/null
-          yes | sdkmanager --licenses > /dev/null || true
+          set -e
+          SDKMANAGER="${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager"
+          if [ ! -x "$SDKMANAGER" ]; then
+            SDKMANAGER=$(command -v sdkmanager)
+          fi
+          yes | "$SDKMANAGER" --licenses > /dev/null || true
+          "$SDKMANAGER" --install "platforms;android-36" "build-tools;36.0.0" > /dev/null
+          echo "ANDROID_HOME=${ANDROID_HOME}"
 
       - name: Decode release keystore
         env:
